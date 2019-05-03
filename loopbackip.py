@@ -6,7 +6,7 @@ from pyroute2 import IPDB
 
 def read_ips():
     print('Loading ip address(-es) from config')
-    with open('/loopback_ip.txt') as f:
+    with open('/config/loopback_ip.txt') as f:
         return f.readlines()
 
 
