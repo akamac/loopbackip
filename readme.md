@@ -1,7 +1,13 @@
 ### Docker image to assign ip addresses from file on loopback interface
 
 Send `SIGHUP` to read ip from `/loopback_ip.txt` (one per line) and assign to loopback interface.
-Needs to be run with `--cap-add NET_ADMIN`.
+Needs to be run with `--cap-add NET_ADMIN` and `--sysctl`.
+
+```yaml
+sysctls:
+  net.ipv4.conf.lo.arp_announce: 2
+  net.ipv4.conf.lo.arp_ignore: 3
+```
 
 ### Run unit tests
 

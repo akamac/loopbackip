@@ -22,7 +22,7 @@ def update_loopback_ips(ips):
             for ip in ips:
                 if ip not in [addr[0] for addr in lo.ipaddr]:
                     try:
-                        lo.add_ip(ip, 32)
+                        lo.add_ip(ip, 32, scope=254) # RT_SCOPE_HOST
                     except:
                         print('Cannot add {}'.format(ip))
 
